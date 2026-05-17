@@ -1,29 +1,9 @@
 ---
-/** Верх: ледяное видео на всю ширину экрана (WordPress background_video). */
+import HeroVideoIntro from '../react/HeroVideoIntro';
 import { asset, site } from '../../content/site';
-import WaveDivider from '../ui/WaveDivider.astro';
-import YoutubeCover from '../ui/YoutubeCover.astro';
 
 const poster = asset('FROST-KING11.jpg');
+const videoSrc = asset(site.heroIntroVideo);
 ---
 
-<section class="relative w-full bg-ice-50" aria-label="וידאו קרח">
-  <div
-    class="relative w-full overflow-hidden min-h-[min(62vh,860px)] sm:min-h-[60vh] md:min-h-[64vh] lg:min-h-[68vh]"
-    style={`background: #0a1628 url('${poster}') center / cover no-repeat;`}
-  >
-    <YoutubeCover
-      videoId={site.heroVideoBg}
-      title="ICE KING — קרח"
-      loading="eager"
-      fill
-      class="youtube-cover--hero"
-    />
-    <div
-      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-transparent to-black/25"
-      aria-hidden="true"
-    ></motion.div>
-  </div>
-
-  <WaveDivider variant="hero" class="relative z-10 -mt-px block w-full" />
-</section>
+<HeroVideoIntro client:only="react" videoSrc={videoSrc} posterSrc={poster} />

@@ -8,10 +8,10 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
-  /** Верх страницы: ледяной фон (Elementor background_video_link) */
-  heroVideoBg: 'IYs32Vpi4RQ',
-  /** Секция HERO: три кадра (Elementor widget video) */
-  heroVideoMain: 'pVeazlIFJGU',
+  /** Верх: intro лёд (self-hosted) */
+  heroIntroVideo: 'video/ice-logo-intro.mp4',
+  /** HERO: три кадра (self-hosted) */
+  heroMainVideo: 'video/hero-section.mp4',
   social: {
     email: 'mailto:Artium07@gmail.com',
     tiktok:
@@ -27,23 +27,6 @@ export const site = {
 
 export function whatsappUrl(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
-}
-
-export function youtubeEmbed(videoId: string) {
-  const params = new URLSearchParams({
-    autoplay: '1',
-    mute: '1',
-    loop: '1',
-    playlist: videoId,
-    controls: '0',
-    playsinline: '1',
-    rel: '0',
-    modestbranding: '1',
-    iv_load_policy: '3',
-    enablejsapi: '1',
-    origin: 'https://iceking.guru',
-  });
-  return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
 }
 
 /** Respects Astro `base` (GitHub Project Pages vs custom domain). */

@@ -1,13 +1,13 @@
 ---
 /** Три кадра в колонке HERO (~60% ширины контейнера, как Elementor widget). */
-import { site } from '../../content/site';
-import YoutubeCover from './YoutubeCover.astro';
+import { asset, site } from '../../content/site';
 
 interface Props {
   class?: string;
 }
 
 const { class: className = '' } = Astro.props;
+const videoSrc = asset(site.heroMainVideo);
 ---
 
 <div
@@ -16,12 +16,16 @@ const { class: className = '' } = Astro.props;
     className,
   ]}
 >
-  <div class="youtube-cover--widget relative aspect-[16/7] w-full sm:aspect-[2.8/1]">
-    <YoutubeCover
-      videoId={site.heroVideoMain}
+  <div class="relative aspect-[16/7] w-full sm:aspect-[2.8/1]">
+    <video
+      class="absolute inset-0 h-full w-full border-0 object-cover"
+      src={videoSrc}
+      muted
+      loop
+      playsinline
+      autoplay
+      preload="metadata"
       title="Ice King — אמבטיות קרח"
-      loading="lazy"
-      fill
-    />
+    ></video>
   </div>
 </div>

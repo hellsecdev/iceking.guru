@@ -59,29 +59,22 @@
     @apply w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition focus:border-ice-cta focus:ring-2 focus:ring-ice-cta/30;
   }
 
-  /** Elementor-style background video: 16:9 cover */
-  .youtube-cover__iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    min-width: 177.78vh;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+  .hero-intro-shell {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.85s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /** Hero: чуть выше кадр — видна вершина горы */
-  .youtube-cover--hero .youtube-cover__iframe {
-    top: 42%;
-    transform: translate(-50%, -50%);
+  .hero-intro-shell.is-collapsed {
+    grid-template-rows: 0fr;
   }
 
-  .youtube-cover--widget .youtube-cover__iframe {
-    width: 300%;
-    height: 300%;
-    min-width: 100%;
-    min-height: 100%;
+  .hero-intro-shell.is-instant {
+    transition: none;
+  }
+
+  .hero-intro-inner {
+    overflow: hidden;
+    min-height: 0;
   }
 }
