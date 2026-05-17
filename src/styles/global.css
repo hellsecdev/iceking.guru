@@ -31,8 +31,12 @@
 }
 
 @layer components {
+  .site-wrap {
+    @apply w-full max-w-none px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20;
+  }
+
   .section-icy {
-    @apply relative overflow-hidden;
+    @apply relative w-full overflow-hidden;
     background:
       linear-gradient(180deg, var(--color-ice-50) 0%, #fff 100%),
       radial-gradient(circle at 10% 20%, rgb(110 193 228 / 0.12) 0%, transparent 25%),

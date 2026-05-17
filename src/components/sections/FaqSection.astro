@@ -3,9 +3,9 @@ import { faqItems } from '../../content/faq';
 import { faqSection } from '../../content/sections';
 ---
 
-<section id="faq" class="section-icy px-4 py-14">
-  <h2 class="section-title mx-auto mb-10 max-w-4xl">{faqSection.title}</h2>
-  <div class="mx-auto max-w-3xl space-y-2">
+<section id="faq" class="section-icy py-14">
+  <h2 class="section-title site-wrap mb-10">{faqSection.title}</h2>
+  <div class="site-wrap space-y-2">
     {
       faqItems.map((item) => (
         <details class="group rounded-lg border border-ice-50/80 bg-white/60 px-4 py-3 shadow-sm open:bg-white">

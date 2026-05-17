@@ -26,7 +26,7 @@ export default function ContactForm() {
   ] as const;
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto w-full max-w-lg space-y-4">
+    <form onSubmit={onSubmit} className="w-full max-w-xl space-y-4 lg:max-w-2xl">
       {fields.map((f) => (
         <div key={f.id}>
           <label htmlFor={f.id} className="mb-1 block text-end text-lg font-semibold text-ice-400">

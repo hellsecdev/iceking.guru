@@ -40,7 +40,7 @@ export default function ImageCarousel({
       : 'min-w-0 flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_55%] lg:flex-[0_0_45%]';
 
   return (
-    <div className="relative mx-auto w-full max-w-5xl px-10">
+    <div className="site-wrap relative w-full">
       <button
         type="button"
         onClick={scrollNext}

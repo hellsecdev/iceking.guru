@@ -8,10 +8,10 @@ import WaveDivider from '../ui/WaveDivider.astro';
 
 <section
   id="gallery"
-  class="section-icy px-4 py-14"
+  class="section-icy py-14"
   style={`background-image: url('${asset('FROST-KING6666.jpg')}'); background-size: cover; background-position: top center; background-color: #d8f5fd;`}
 >
-  <h2 class="section-title mb-10">{gallerySection.title}</h2>
+  <h2 class="section-title site-wrap mb-10">{gallerySection.title}</h2>
   <ImageCarousel
     client:visible
     images={galleryImages}

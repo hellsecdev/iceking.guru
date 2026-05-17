@@ -5,10 +5,8 @@ import SocialLinks from '../ui/SocialLinks.astro';
 const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
 ---
 
-<header class="relative z-20 px-4 py-3 md:px-6 md:py-3.5">
-  <div
-    class="mx-auto grid w-full max-w-[min(100%,1400px)] grid-cols-2 items-center gap-3 sm:px-2 md:grid-cols-[1fr_auto_1fr] md:gap-6 lg:px-4"
-  >
+<header class="relative z-20 py-3 md:py-3.5">
+  <div class="site-wrap grid grid-cols-2 items-center gap-3 md:grid-cols-[1fr_auto_1fr] md:gap-6">
     <div class="flex flex-wrap items-center justify-start gap-2 md:gap-3">
       <a href={`tel:${site.phoneTel}`} class="btn-pill text-xs md:text-sm">
         <img src={asset('ICEKING-5.png')} alt="" class="h-5 w-5 shrink-0" />
