@@ -72,6 +72,12 @@
     pointer-events: none;
   }
 
+  /** Hero: чуть выше кадр — видна вершина горы */
+  .youtube-cover--hero .youtube-cover__iframe {
+    top: 42%;
+    transform: translate(-50%, -50%);
+  }
+
   .youtube-cover--widget .youtube-cover__iframe {
     width: 300%;
     height: 300%;
