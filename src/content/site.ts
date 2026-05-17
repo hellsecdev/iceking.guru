@@ -30,7 +30,20 @@ export function whatsappUrl(message: string) {
 }
 
 export function youtubeEmbed(videoId: string) {
-  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3`;
+  const params = new URLSearchParams({
+    autoplay: '1',
+    mute: '1',
+    loop: '1',
+    playlist: videoId,
+    controls: '0',
+    playsinline: '1',
+    rel: '0',
+    modestbranding: '1',
+    iv_load_policy: '3',
+    enablejsapi: '1',
+    origin: 'https://iceking.guru',
+  });
+  return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
 }
 
 /** Respects Astro `base` (GitHub Project Pages vs custom domain). */

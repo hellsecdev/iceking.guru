@@ -3,26 +3,28 @@
 import { asset, site } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
 import YoutubeCover from '../ui/YoutubeCover.astro';
+
+const poster = asset('FROST-KING11.jpg');
 ---
 
-<section
-  class="relative left-1/2 w-screen max-w-none -translate-x-1/2 overflow-hidden bg-ice-50"
-  aria-label="וידאו קרח"
->
+<section class="relative w-full overflow-hidden bg-ice-50" aria-label="וידאו קרח">
   <div
-    class="relative min-h-[38vh] w-full sm:min-h-[42vh] md:min-h-[48vh] lg:min-h-[52vh]"
+    class="relative w-full min-h-[min(52vh,720px)] sm:min-h-[48vh] md:min-h-[52vh]"
+    style={`background: #0a1628 url('${poster}') center / cover no-repeat;`}
   >
     <YoutubeCover
       videoId={site.heroVideoBg}
       title="ICE KING — קרח"
       loading="eager"
-      class="absolute inset-0"
+      fill
     />
     <div
-      class="absolute inset-0 z-[1] bg-gradient-to-b from-black/5 via-transparent to-[#D8F5FD]"
+      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-transparent to-[#D8F5FD]/90"
       aria-hidden="true"
     ></div>
-    <div class="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center px-4">
+    <div
+      class="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center px-4"
+    >
       <img
         src={asset('ICEKING213213.png')}
         alt={site.name}

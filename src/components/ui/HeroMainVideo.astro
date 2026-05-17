@@ -12,16 +12,16 @@ const { class: className = '' } = Astro.props;
 
 <div
   class:list={[
-    'mx-auto w-full overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/80 lg:ms-auto lg:me-0 lg:max-w-[92%]',
+    'w-full overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/80 lg:ms-auto lg:me-0 lg:max-w-[92%]',
     className,
   ]}
 >
-  <div class="relative aspect-[2.8/1] w-full sm:aspect-[16/7]">
+  <div class="youtube-cover--widget relative aspect-[16/7] w-full sm:aspect-[2.8/1]">
     <YoutubeCover
       videoId={site.heroVideoMain}
       title="Ice King — אמבטיות קרח"
       loading="lazy"
-      class="absolute inset-0"
+      fill
     />
   </div>
 </div>
