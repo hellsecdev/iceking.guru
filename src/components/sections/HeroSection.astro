@@ -1,9 +1,10 @@
 ---
 /**
- * HERO: ролик с тремя кадрами + меню + двухколоночный блок (как WordPress).
+ * HERO: меню + две колонки. Ролик с 3 кадрами — в левой колонке (как WordPress).
  */
-import { asset, site, youtubeEmbed } from '../../content/site';
+import { asset } from '../../content/site';
 import { intro } from '../../content/sections';
+import HeroMainVideo from '../ui/HeroMainVideo.astro';
 import SiteHeader from './SiteHeader.astro';
 import WaveDivider from '../ui/WaveDivider.astro';
 
@@ -14,25 +15,14 @@ const frostBg = asset('FROST-KING324234234324.jpg');
 
 <section
   id="hero"
-  class="section-icy relative -mt-1 overflow-hidden"
+  class="section-icy relative overflow-hidden"
   style={`background-image: linear-gradient(180deg, rgba(216,245,253,0.92) 0%, rgba(255,255,255,0.95) 55%), url('${frostBg}'); background-size: cover; background-position: center bottom;`}
 >
-  <div class="w-full overflow-hidden bg-black">
-    <div class="relative aspect-video w-full max-h-[75vh]">
-      <iframe
-        class="absolute inset-0 h-full w-full border-0"
-        src={youtubeEmbed(site.heroVideoMain)}
-        title="Ice King — אמבטיות קרח"
-        allow="autoplay; encrypted-media"
-        loading="lazy"
-      ></iframe>
-    </div>
-  </div>
-
   <SiteHeader />
 
   <div class="mx-auto max-w-6xl px-4 pb-12 pt-2 md:pb-16 md:pt-4">
     <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+      <!-- RTL: справа — заголовок и круглое фото -->
       <div class="flex flex-col items-center gap-6 text-center lg:items-end lg:text-end">
         <div class="space-y-3">
           <h1
@@ -54,6 +44,7 @@ const frostBg = asset('FROST-KING324234234324.jpg');
         />
       </div>
 
+      <!-- RTL: слева — преимущества + видео с 3 кадрами -->
       <div class="space-y-5 text-center lg:text-end">
         <h2 class="text-2xl font-semibold text-ice-400 md:text-3xl">
           {intro.benefitsTitle}
@@ -85,12 +76,7 @@ const frostBg = asset('FROST-KING324234234324.jpg');
           </li>
         </ul>
 
-        <img
-          src={asset(intro.stripImage)}
-          alt="אמבטיות קרח ב-Ice King"
-          class="w-full rounded-2xl object-cover shadow-lg ring-1 ring-white/80"
-          loading="lazy"
-        />
+        <HeroMainVideo class="lg:max-w-[95%]" />
       </div>
     </div>
   </div>
