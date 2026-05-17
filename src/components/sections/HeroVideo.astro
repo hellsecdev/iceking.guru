@@ -1,21 +1,28 @@
 ---
+/**
+ * Верхний блок: только основное YouTube-видео (над меню), как на WordPress.
+ */
 import { site } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
 
-const embed = `https://www.youtube-nocookie.com/embed/${site.heroVideoId}?autoplay=1&mute=1&loop=1&playlist=${site.heroVideoId}&controls=0&playsinline=1&rel=0&modestbranding=1&showinfo=0`;
+const id = site.heroVideoTop;
+const embed = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1`;
 ---
 
-<section class="relative min-h-[50vh] overflow-hidden bg-ice-50 md:min-h-[65vh] lg:min-h-[75vh]">
-  <div class="absolute inset-0">
+<section
+  class="relative overflow-hidden bg-black"
+  aria-label="סרטון Ice King"
+>
+  <div class="relative aspect-video w-full max-h-[85vh] min-h-[220px] md:min-h-[380px] lg:min-h-[480px]">
     <iframe
-      class="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full min-w-[177.78vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2"
+      class="absolute inset-0 h-full w-full"
       src={embed}
-      title="ICE KING"
-      allow="autoplay; encrypted-media"
+      title="ICE KING — וידאו"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
       loading="eager"
     ></iframe>
-    <div class="absolute inset-0 bg-gradient-to-b from-ice-50/30 via-transparent to-ice-50/80"></div>
   </div>
 
-  <WaveDivider class="absolute bottom-0 left-0 z-10 w-full" />
+  <WaveDivider class="relative z-10 -mb-px" />
 </section>

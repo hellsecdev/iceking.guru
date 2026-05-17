@@ -8,7 +8,10 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
-  heroVideoId: 'pVeazlIFJGU',
+  /** Видео над меню (Elementor widget — основной ролик) */
+  heroVideoTop: 'pVeazlIFJGU',
+  /** Фоновое видео (опционально, не используется в топ-блоке) */
+  heroVideoBg: 'IYs32Vpi4RQ',
   social: {
     email: 'mailto:Artium07@gmail.com',
     tiktok:
