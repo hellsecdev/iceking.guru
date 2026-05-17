@@ -7,9 +7,9 @@ import YoutubeCover from '../ui/YoutubeCover.astro';
 const poster = asset('FROST-KING11.jpg');
 ---
 
-<section class="relative w-full overflow-hidden bg-ice-50" aria-label="וידאו קרח">
+<section class="relative w-full bg-ice-50" aria-label="וידאו קרח">
   <div
-    class="relative w-full min-h-[min(62vh,860px)] sm:min-h-[60vh] md:min-h-[64vh] lg:min-h-[68vh]"
+    class="relative w-full overflow-hidden min-h-[min(62vh,860px)] sm:min-h-[60vh] md:min-h-[64vh] lg:min-h-[68vh]"
     style={`background: #0a1628 url('${poster}') center / cover no-repeat;`}
   >
     <YoutubeCover
@@ -20,9 +20,10 @@ const poster = asset('FROST-KING11.jpg');
       class="youtube-cover--hero"
     />
     <div
-      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/15 via-transparent to-[#D8F5FD]/35"
+      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/10 via-transparent to-black/25"
       aria-hidden="true"
-    ></div>
-    <WaveDivider variant="hero" class="absolute bottom-0 left-0 z-[2] w-full" />
+    ></motion.div>
   </div>
+
+  <WaveDivider variant="hero" class="relative z-10 -mt-px block w-full" />
 </section>

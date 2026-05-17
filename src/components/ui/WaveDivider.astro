@@ -2,50 +2,32 @@
 interface Props {
   flip?: boolean;
   class?: string;
-  /** hero — двойная волна для стыка видео и контента */
+  /** Чуть выше волна для стыка видео → hero */
   variant?: 'default' | 'hero';
 }
 
 const { flip = false, class: className = '', variant = 'default' } = Astro.props;
 
-const heightClass =
+const heightClass = variant === 'hero' ? 'h-16 md:h-20 lg:h-24' : 'h-14 md:h-20';
+
+/** Одна кривая: заливка только под волной (без полосы сверху) */
+const wavePath =
   variant === 'hero'
-    ? 'h-[4.5rem] sm:h-24 md:h-28 lg:h-32'
-    : 'h-14 md:h-20';
+    ? 'M0,56 C320,108 640,24 960,64 C1120,84 1280,96 1440,72 L1440,120 L0,120 Z'
+    : 'M0,64 C300,120 900,0 1200,64 L1200,120 L0,120 Z';
+
+const viewBox = variant === 'hero' ? '0 0 1440 120' : '0 0 1200 120';
 ---
 
 <div
-  class:list={['pointer-events-none w-full leading-[0] text-ice-50', className]}
+  class:list={['pointer-events-none w-full leading-[0]', className]}
   aria-hidden="true"
 >
-  {
-    variant === 'hero' ? (
-      <svg
-        class:list={['block w-full', heightClass, flip && 'rotate-180']}
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0,52 C180,8 360,98 540,58 C720,18 900,88 1080,48 C1200,28 1320,72 1440,42 L1440,0 L0,0 Z"
-          fill="#D8F5FD"
-          opacity="0.55"
-        />
-        <path
-          d="M0,78 C240,118 420,38 660,82 C900,126 1080,46 1320,76 C1380,84 1410,90 1440,94 L1440,120 L0,120 Z"
-          fill="#D8F5FD"
-        />
-      </svg>
-    ) : (
-      <svg
-        class:list={['block w-full', heightClass, flip && 'rotate-180']}
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0,64 C300,120 900,0 1200,64 L1200,120 L0,120 Z"
-          fill="#D8F5FD"
-        />
-      </svg>
-    )
-  }
+  <svg
+    class:list={['block w-full text-ice-50', heightClass, flip && 'rotate-180']}
+    viewBox={viewBox}
+    preserveAspectRatio="none"
+  >
+    <path d={wavePath} fill="currentColor"></path>
+  </svg>
 </div>
