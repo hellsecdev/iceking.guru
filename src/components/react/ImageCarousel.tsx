@@ -10,7 +10,7 @@ type Props = {
 
 export default function ImageCarousel({
   images,
-  assetBase = '/assets',
+  assetBase = 'assets',
   slidesToShow = 1,
   showFraction = false,
 }: Props) {
@@ -63,7 +63,7 @@ export default function ImageCarousel({
           {images.map((file) => (
             <div key={file} className={`${basis} pl-2`}>
               <img
-                src={`${assetBase}/${encodeURI(file)}`}
+                src={`${assetBase.replace(/\/?$/, '/')}${encodeURI(file)}`}
                 alt=""
                 className="mx-auto max-h-[420px] w-full rounded-xl object-contain shadow-lg"
                 loading="lazy"

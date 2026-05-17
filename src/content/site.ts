@@ -8,8 +8,7 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
-  heroVideoBg: 'IYs32Vpi4RQ',
-  heroVideoMain: 'pVeazlIFJGU',
+  heroVideoId: 'pVeazlIFJGU',
   social: {
     email: 'mailto:Artium07@gmail.com',
     tiktok:
@@ -27,6 +26,13 @@ export function whatsappUrl(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 
+/** Respects Astro `base` (GitHub Project Pages vs custom domain). */
 export function asset(path: string) {
-  return `/assets/${path}`;
+  const base = import.meta.env.BASE_URL;
+  const clean = path.replace(/^\//, '');
+  return `${base}assets/${clean}`;
+}
+
+export function assetsBase() {
+  return `${import.meta.env.BASE_URL}assets`;
 }

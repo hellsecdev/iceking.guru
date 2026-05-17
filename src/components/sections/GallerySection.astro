@@ -1,5 +1,6 @@
 ---
 import ImageCarousel from '../react/ImageCarousel';
+import { asset } from '../../content/site';
 import { gallerySection } from '../../content/sections';
 import { galleryImages } from '../../content/media';
 import WaveDivider from '../ui/WaveDivider.astro';
@@ -8,9 +9,14 @@ import WaveDivider from '../ui/WaveDivider.astro';
 <section
   id="gallery"
   class="section-icy px-4 py-14"
-  style="background-image: url('/assets/FROST-KING6666.jpg'); background-size: cover; background-position: top center;"
+  style={`background-image: url('${asset('FROST-KING6666.jpg')}'); background-size: cover; background-position: top center; background-color: #d8f5fd;`}
 >
   <h2 class="section-title mb-10">{gallerySection.title}</h2>
-  <ImageCarousel client:visible images={galleryImages} slidesToShow={3} />
+  <ImageCarousel
+    client:visible
+    images={galleryImages}
+    assetBase={import.meta.env.BASE_URL + 'assets'}
+    slidesToShow={3}
+  />
 </section>
 <WaveDivider />
