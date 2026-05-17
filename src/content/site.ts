@@ -8,9 +8,9 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
-  /** Видео над меню (Elementor widget — основной ролик) */
+  /** Верх страницы (на месте ледяного фона в WP): ролик с кадрами */
   heroVideoTop: 'pVeazlIFJGU',
-  /** Фоновое видео (опционально, не используется в топ-блоке) */
+  /** Ледяной фон WP (background_video) — не используем отдельно */
   heroVideoBg: 'IYs32Vpi4RQ',
   social: {
     email: 'mailto:Artium07@gmail.com',

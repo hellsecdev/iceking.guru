@@ -1,25 +1,22 @@
 ---
 /**
- * Верхний блок: только основное YouTube-видео (над меню), как на WordPress.
+ * Самый верх: второе YouTube-видео (pVeazlIFJGU) — три кадра с амбатиами.
+ * Стоит на месте ледяного background-video в WordPress.
  */
 import { site } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
 
 const id = site.heroVideoTop;
-const embed = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1`;
+const embed = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3`;
 ---
 
-<section
-  class="relative overflow-hidden bg-black"
-  aria-label="סרטון Ice King"
->
-  <div class="relative aspect-video w-full max-h-[85vh] min-h-[220px] md:min-h-[380px] lg:min-h-[480px]">
+<section class="relative overflow-hidden bg-black" aria-label="סרטון Ice King">
+  <div class="relative aspect-video w-full max-h-[85vh] min-h-[240px] md:min-h-[400px]">
     <iframe
-      class="absolute inset-0 h-full w-full"
+      class="absolute inset-0 h-full w-full border-0"
       src={embed}
-      title="ICE KING — וידאו"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen
+      title="ICE KING"
+      allow="autoplay; encrypted-media"
       loading="eager"
     ></iframe>
   </div>
