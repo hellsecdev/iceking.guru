@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { site } from '../content/site';
+import { asset, site } from '../content/site';
 
 interface Props {
   title?: string;
@@ -28,7 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="he_IL" />
-    <link rel="icon" type="image/png" href="/assets/cropped-ICEKING-32x32.png" />
+    <link rel="icon" type="image/png" href={asset('cropped-ICEKING-32x32.png')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

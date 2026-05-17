@@ -1,22 +1,37 @@
 ---
 /** Верх: ледяное видео на всю ширину экрана (WordPress background_video). */
-import { site, youtubeEmbed } from '../../content/site';
+import { asset, site } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
+import YoutubeCover from '../ui/YoutubeCover.astro';
 ---
 
 <section
   class="relative left-1/2 w-screen max-w-none -translate-x-1/2 overflow-hidden bg-ice-50"
   aria-label="וידאו קרח"
 >
-  <div class="relative aspect-[21/9] min-h-[200px] w-full sm:aspect-[2.4/1] md:min-h-[280px] lg:min-h-[340px]">
-    <iframe
-      class="pointer-events-none absolute inset-0 h-full w-full border-0"
-      src={youtubeEmbed(site.heroVideoBg)}
+  <div
+    class="relative min-h-[38vh] w-full sm:min-h-[42vh] md:min-h-[48vh] lg:min-h-[52vh]"
+  >
+    <YoutubeCover
+      videoId={site.heroVideoBg}
       title="ICE KING — קרח"
-      allow="autoplay; encrypted-media"
       loading="eager"
-    ></iframe>
-    <div class="absolute inset-0 bg-gradient-to-b from-ice-50/10 via-transparent to-ice-50/75"></div>
+      class="absolute inset-0"
+    />
+    <div
+      class="absolute inset-0 z-[1] bg-gradient-to-b from-black/5 via-transparent to-[#D8F5FD]"
+      aria-hidden="true"
+    ></div>
+    <div class="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center px-4">
+      <img
+        src={asset('ICEKING213213.png')}
+        alt={site.name}
+        class="h-24 w-auto drop-shadow-lg md:h-32 lg:h-40"
+        width="320"
+        height="128"
+        loading="eager"
+      />
+    </div>
   </div>
 
   <WaveDivider class="relative z-10 -mb-px w-full" />

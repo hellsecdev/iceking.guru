@@ -1,0 +1,22 @@
+---
+import { youtubeEmbed } from '../../content/site';
+
+interface Props {
+  videoId: string;
+  title: string;
+  loading?: 'eager' | 'lazy';
+  class?: string;
+}
+
+const { videoId, title, loading = 'lazy', class: className = '' } = Astro.props;
+---
+
+<div class:list={['youtube-cover relative h-full w-full overflow-hidden', className]}>
+  <iframe
+    class="youtube-cover__iframe pointer-events-none border-0"
+    src={youtubeEmbed(videoId)}
+    title={title}
+    allow="autoplay; encrypted-media"
+    loading={loading}
+  ></iframe>
+</div>

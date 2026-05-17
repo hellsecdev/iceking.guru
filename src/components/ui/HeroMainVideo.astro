@@ -1,6 +1,7 @@
 ---
 /** Три кадра в колонке HERO (~60% ширины контейнера, как Elementor widget). */
-import { site, youtubeEmbed } from '../../content/site';
+import { site } from '../../content/site';
+import YoutubeCover from './YoutubeCover.astro';
 
 interface Props {
   class?: string;
@@ -11,17 +12,16 @@ const { class: className = '' } = Astro.props;
 
 <div
   class:list={[
-    'mx-auto w-full overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/80 lg:mx-0',
+    'mx-auto w-full overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/80 lg:ms-auto lg:me-0 lg:max-w-[92%]',
     className,
   ]}
 >
-  <div class="relative aspect-[2.35/1] w-full sm:aspect-[2.2/1]">
-    <iframe
-      class="absolute inset-0 h-full w-full border-0"
-      src={youtubeEmbed(site.heroVideoMain)}
+  <div class="relative aspect-[2.8/1] w-full sm:aspect-[16/7]">
+    <YoutubeCover
+      videoId={site.heroVideoMain}
       title="Ice King — אמבטיות קרח"
-      allow="autoplay; encrypted-media"
       loading="lazy"
-    ></iframe>
+      class="absolute inset-0"
+    />
   </div>
 </div>
