@@ -1,25 +1,25 @@
 ---
-/**
- * Самый верх: второе YouTube-видео (pVeazlIFJGU) — три кадра с амбатиами.
- * Стоит на месте ледяного background-video в WordPress.
- */
-import { site } from '../../content/site';
+/** Верх страницы: ледяное background-video (как в WordPress). */
+import { site, youtubeEmbed } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
-
-const id = site.heroVideoTop;
-const embed = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3`;
 ---
 
-<section class="relative overflow-hidden bg-black" aria-label="סרטון Ice King">
-  <div class="relative aspect-video w-full max-h-[85vh] min-h-[240px] md:min-h-[400px]">
+<section
+  class="relative min-h-[38vh] overflow-hidden bg-ice-50 md:min-h-[50vh] lg:min-h-[58vh]"
+  aria-label="וידאו קרח"
+>
+  <div class="absolute inset-0">
     <iframe
-      class="absolute inset-0 h-full w-full border-0"
-      src={embed}
-      title="ICE KING"
+      class="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full min-w-[177.78vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 border-0"
+      src={youtubeEmbed(site.heroVideoBg)}
+      title="ICE KING — קרח"
       allow="autoplay; encrypted-media"
       loading="eager"
     ></iframe>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-ice-50/20 via-transparent to-ice-50/85"
+    ></div>
   </div>
 
-  <WaveDivider class="relative z-10 -mb-px" />
+  <WaveDivider class="absolute bottom-0 left-0 z-10 w-full" />
 </section>

@@ -8,10 +8,10 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
-  /** Верх страницы (на месте ледяного фона в WP): ролик с кадрами */
-  heroVideoTop: 'pVeazlIFJGU',
-  /** Ледяной фон WP (background_video) — не используем отдельно */
+  /** Верх страницы: ледяной фон (Elementor background_video_link) */
   heroVideoBg: 'IYs32Vpi4RQ',
+  /** Секция HERO: три кадра (Elementor widget video) */
+  heroVideoMain: 'pVeazlIFJGU',
   social: {
     email: 'mailto:Artium07@gmail.com',
     tiktok:
@@ -27,6 +27,10 @@ export const site = {
 
 export function whatsappUrl(message: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
+export function youtubeEmbed(videoId: string) {
+  return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3`;
 }
 
 /** Respects Astro `base` (GitHub Project Pages vs custom domain). */
