@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ice-50: #d8f5fd;
+  --color-ice-100: #e8f9fe;
+  --color-ice-300: #6ec1e4;
+  --color-ice-400: #60afd1;
+  --color-ice-cta: #3bb4fa;
+  --color-ice-cta-hover: #004fec;
+  --font-heebo: "Heebo", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-[family-name:var(--font-heebo)] text-ice-400 antialiased;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgb(216 245 253 / 0.9), transparent 45%),
+      radial-gradient(circle at 80% 30%, rgb(216 245 253 / 0.6), transparent 40%);
+  }
+}
+
+@layer components {
+  .section-icy {
+    @apply relative overflow-hidden;
+    background: linear-gradient(180deg, var(--color-ice-50) 0%, #fff 100%);
+  }
+
+  .section-title {
+    @apply text-center text-2xl font-semibold text-ice-400 md:text-3xl lg:text-4xl;
+  }
+
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ice-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-ice-cta-hover;
+  }
+
+  .btn-ribbon {
+    @apply relative inline-block overflow-hidden rounded-lg bg-gradient-to-l from-ice-cta to-sky-400 px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:from-ice-cta-hover hover:to-ice-cta;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition focus:border-ice-cta focus:ring-2 focus:ring-ice-cta/30;
+  }
+}

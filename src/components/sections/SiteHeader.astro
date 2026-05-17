@@ -1,0 +1,45 @@
+---
+import { asset, site, whatsappUrl } from '../../content/site';
+import SocialLinks from '../ui/SocialLinks.astro';
+
+const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
+---
+
+<header
+  class="section-icy relative z-20 -mt-24 border-b border-white/50 px-4 pb-6 pt-28 md:-mt-32 md:px-6 md:pt-32"
+>
+  <div
+    class="mx-auto grid max-w-6xl grid-cols-2 items-center gap-4 md:grid-cols-[1fr_auto_1fr] md:gap-6"
+  >
+    <div class="flex flex-wrap items-center justify-start gap-2 md:gap-3">
+      <a href={`tel:${site.phoneTel}`} class="btn-pill text-xs md:text-sm">
+        <img src={asset('ICEKING-5.png')} alt="" class="h-5 w-5" />
+        {site.phone}
+      </a>
+      <SocialLinks />
+    </div>
+
+    <div class="col-span-2 flex justify-center md:col-span-1">
+      <a href="/" class="block">
+        <img
+          src={asset('ICEKING213213.png')}
+          alt={site.name}
+          class="h-16 w-auto md:h-20"
+          width="200"
+          height="80"
+        />
+      </a>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-end gap-2 md:gap-3">
+      <p class="flex items-center gap-1 text-sm font-semibold text-ice-400 md:text-base">
+        <span aria-hidden="true">📍</span>
+        {site.location}
+      </p>
+      <a href={waLink} target="_blank" rel="noopener noreferrer" class="btn-pill text-xs md:text-sm">
+        <img src={asset('ICEKING45465.png')} alt="" class="h-5 w-5" />
+        WhatsApp · צור קשר
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,25 @@
+---
+import { asset, site } from '../../content/site';
+
+const icons = [
+  { href: site.social.email, src: '2139087.png', alt: 'Email' },
+  { href: site.social.tiktok, src: '223908.png', alt: 'TikTok' },
+  { href: site.social.instagram, src: '23258.png', alt: 'Instagram' },
+  { href: site.social.facebook, src: '2312539.png', alt: 'Facebook' },
+];
+---
+
+<div class="flex items-center justify-center gap-3">
+  {
+    icons.map((icon) => (
+      <a
+        href={icon.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="transition hover:scale-105"
+      >
+        <img src={asset(icon.src)} alt={icon.alt} class="h-9 w-9 object-contain" loading="lazy" />
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,26 @@
+---
+import { promo } from '../../content/sections';
+import { whatsappUrl } from '../../content/site';
+import WaveDivider from '../ui/WaveDivider.astro';
+
+const ctaHref = whatsappUrl('שלום! מעוניין/ת בקורס מדריכי אמבטיות קרח');
+---
+
+<section id="promo" class="section-icy px-4 py-16 text-center">
+  <h2 class="mx-auto mb-6 max-w-4xl text-2xl font-bold text-ice-400 md:text-3xl lg:text-4xl">
+    {promo.title}
+  </h2>
+  <p class="mx-auto mb-4 max-w-3xl text-xl font-semibold text-ice-300 md:text-2xl">
+    ללמוד ממני את סודות אמבטיות הקרח רק ב-
+    <span class="text-ice-cta">{promo.priceNew} ש"ח</span>
+    במקום
+    <span class="text-slate-400 line-through">{promo.priceOld} ש"ח</span>!
+  </p>
+  <p class="mb-2 text-lg font-bold text-ice-400">{promo.exclusivity}</p>
+  <p class="mx-auto mb-2 max-w-2xl text-ice-300">{promo.body}</p>
+  <p class="mx-auto mb-8 max-w-2xl font-medium text-ice-400">{promo.urgency}</p>
+  <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="btn-ribbon">
+    {promo.cta}
+  </a>
+</section>
+<WaveDivider flip />

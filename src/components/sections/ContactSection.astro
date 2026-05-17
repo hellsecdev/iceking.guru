@@ -1,0 +1,15 @@
+---
+import ContactForm from '../react/ContactForm';
+import SocialLinks from '../ui/SocialLinks.astro';
+import { asset } from '../../content/site';
+import { contactSection } from '../../content/sections';
+---
+
+<section id="contactus" class="section-icy px-4 py-16">
+  <h2 class="section-title mb-10">{contactSection.title}</h2>
+  <ContactForm client:load />
+  <div class="mt-12 flex flex-col items-center gap-6">
+    <img src={asset('ICEKING213213.png')} alt="ICE KING" class="h-24 w-auto" loading="lazy" />
+    <SocialLinks />
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { asset } from '../../content/site';
+import { services, servicesTitle } from '../../content/services';
+---
+
+<section id="services" class="section-icy px-4 py-14">
+  <h2 class="section-title mb-12">{servicesTitle}</h2>
+  <div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 xl:grid-cols-4">
+    {
+      services.map((service) => (
+        <article class="flex flex-col">
+          <div class="relative mb-8">
+            <img
+              src={asset(service.image)}
+              alt={service.title}
+              class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
+              loading="lazy"
+            />
+            <span class="absolute bottom-0 left-1/2 w-[90%] -translate-x-1/2 translate-y-1/2 rounded-full border-2 border-ice-50 bg-ice-cta px-3 py-2 text-center text-sm font-semibold text-white shadow-md">
+              {service.title}
+            </span>
+          </div>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-ice-300">{service.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

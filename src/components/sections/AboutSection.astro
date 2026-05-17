@@ -1,0 +1,25 @@
+---
+import { asset } from '../../content/site';
+import { about } from '../../content/sections';
+import WaveDivider from '../ui/WaveDivider.astro';
+---
+
+<section
+  id="about"
+  class="section-icy px-4 py-14"
+  style={`background-image: url('${asset('FROST-KING22223.jpg')}'); background-size: cover; background-position: center;`}
+>
+  <h2 class="section-title mb-10">{about.title}</h2>
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
+    <img
+      src={asset(about.image)}
+      alt="ארטיום בויקוב - Ice King"
+      class="w-full max-w-md justify-self-center rounded-2xl shadow-2xl lg:justify-self-start"
+      loading="lazy"
+    />
+    <div class="space-y-4 text-lg leading-relaxed text-ice-400">
+      {about.paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+<WaveDivider />

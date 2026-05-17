@@ -1,0 +1,12 @@
+---
+import ImageCarousel from '../react/ImageCarousel';
+import { testimonials } from '../../content/sections';
+import { testimonialImages } from '../../content/media';
+import WaveDivider from '../ui/WaveDivider.astro';
+---
+
+<section id="testimonials" class="section-icy px-4 py-14">
+  <h2 class="section-title mb-10">{testimonials.title}</h2>
+  <ImageCarousel client:visible images={testimonialImages} showFraction />
+</section>
+<WaveDivider flip />
