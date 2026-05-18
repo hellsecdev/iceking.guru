@@ -22,7 +22,10 @@ export default function HeroVideoIntro({ videoSrc, posterSrc }: Props) {
   const showVideo = !collapsed;
 
   return (
-    <section className="relative w-full bg-ice-50" aria-label="וידאו קרח">
+    <section
+      className="hero-enter relative w-full bg-ice-50"
+      aria-label="וידאו קרח"
+    >
       <div
         className={[
           'hero-intro-shell',

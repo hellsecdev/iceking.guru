@@ -22,12 +22,14 @@ const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
   class="section-icy relative overflow-hidden bg-ice-50"
   style={`background-image: linear-gradient(180deg, #D8F5FD 0%, rgba(216,245,253,0.95) 12%, rgba(255,255,255,0.95) 55%), url('${frostBg}'); background-size: cover; background-position: center bottom;`}
 >
-  <SiteHeader />
+  <div class="hero-enter hero-enter--1">
+    <SiteHeader />
+  </div>
 
   <div class="site-wrap pb-12 pt-0 md:pb-16 md:pt-1">
     <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
       <!-- RTL: справа — заголовок и круглое фото -->
-      <div class="flex flex-col items-center gap-6 text-center">
+      <div class="hero-enter hero-enter--2 flex flex-col items-center gap-6 text-center">
         <div class="mx-auto max-w-xl space-y-3">
           <h1 class={heroTitleClass}>
             {intro.headline}
@@ -39,7 +41,7 @@ const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
         <img
           src={asset(intro.heroImage)}
           alt="טבילת קרח ב-Ice King"
-          class="h-[28rem] w-[28rem] max-w-[min(100%,28rem)] shrink-0 rounded-full object-cover md:h-[32rem] md:w-[32rem] md:max-w-[min(100%,32rem)] lg:h-[35rem] lg:w-[35rem] lg:max-w-[min(100%,35rem)]"
+          class="hero-enter hero-enter--3 h-[28rem] w-[28rem] max-w-[min(100%,28rem)] shrink-0 rounded-full object-cover md:h-[32rem] md:w-[32rem] md:max-w-[min(100%,32rem)] lg:h-[35rem] lg:w-[35rem] lg:max-w-[min(100%,35rem)]"
           loading="eager"
           width="560"
           height="560"
@@ -47,7 +49,7 @@ const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
       </div>
 
       <!-- RTL: слева — преимущества + видео -->
-      <div class="flex flex-col items-center gap-5 text-center">
+      <div class="hero-enter hero-enter--4 flex flex-col items-center gap-5 text-center">
         <div class="mx-auto max-w-xl space-y-3">
           <h2 class={heroTitleClass}>
             {intro.benefitsTitle}
@@ -58,7 +60,7 @@ const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
         </div>
 
         <ul
-          class="mx-auto grid w-full max-w-lg justify-items-start gap-3 text-start text-ice-400 sm:grid-cols-2 sm:gap-x-10"
+          class="hero-enter hero-enter--5 mx-auto grid w-full max-w-lg justify-items-start gap-3 text-start text-ice-400 sm:grid-cols-2 sm:gap-x-10"
         >
           <li class="space-y-2">
             {
@@ -82,7 +84,7 @@ const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
           </li>
         </ul>
 
-        <HeroMainVideo class="w-full max-w-2xl" />
+        <HeroMainVideo class="hero-enter hero-enter--6 w-full max-w-2xl" />
       </div>
     </div>
   </div>

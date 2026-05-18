@@ -1,0 +1,32 @@
+---
+import { asset, site } from '../../content/site';
+---
+
+<div
+  id="site-loader"
+  class="site-loader"
+  role="status"
+  aria-live="polite"
+  aria-busy="true"
+  aria-label="טוען את האתר"
+>
+  <div class="site-loader__panel">
+    <div class="site-loader__logo-wrap">
+      <div class="site-loader__ring" aria-hidden="true"></div>
+      <div class="site-loader__ring site-loader__ring--delay" aria-hidden="true"></div>
+      <img
+        src={asset('ICEKING213213.png')}
+        alt=""
+        class="site-loader__logo"
+        width="320"
+        height="128"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+    <div class="site-loader__bar" aria-hidden="true">
+      <span class="site-loader__bar-fill"></span>
+    </div>
+    <p class="site-loader__label">{site.name}</p>
+  </div>
+</div>
