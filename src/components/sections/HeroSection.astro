@@ -11,6 +11,10 @@ import WaveDivider from '../ui/WaveDivider.astro';
 const benefitsColA = intro.benefits.slice(0, 3);
 const benefitsColB = intro.benefits.slice(3);
 const frostBg = asset('FROST-KING324234234324.jpg');
+
+const heroTitleClass =
+  'text-2xl font-semibold leading-snug text-ice-400 md:text-[1.75rem] lg:text-4xl';
+const heroLeadClass = 'text-xl font-semibold text-ice-300 md:text-2xl';
 ---
 
 <section
@@ -25,12 +29,10 @@ const frostBg = asset('FROST-KING324234234324.jpg');
       <!-- RTL: справа — заголовок и круглое фото -->
       <div class="flex flex-col items-center gap-6 text-center">
         <div class="mx-auto max-w-xl space-y-3">
-          <h1
-            class="text-2xl font-semibold leading-snug text-ice-400 md:text-[1.75rem] lg:text-4xl"
-          >
+          <h1 class={heroTitleClass}>
             {intro.headline}
           </h1>
-          <p class="text-xl font-semibold text-ice-300 md:text-2xl">
+          <p class={heroLeadClass}>
             {intro.welcome}
           </p>
         </div>
@@ -47,19 +49,21 @@ const frostBg = asset('FROST-KING324234234324.jpg');
       <!-- RTL: слева — преимущества + видео -->
       <div class="flex flex-col items-center gap-5 text-center">
         <div class="mx-auto max-w-xl space-y-3">
-          <h2 class="text-2xl font-semibold text-ice-400 md:text-3xl">
+          <h2 class={heroTitleClass}>
             {intro.benefitsTitle}
           </h2>
-          <p class="text-base leading-relaxed text-ice-300 md:text-lg">
+          <p class={heroLeadClass}>
             {intro.benefitsIntro}
           </p>
         </div>
 
-        <ul class="mx-auto grid w-full max-w-md gap-3 text-ice-400 sm:grid-cols-2 sm:gap-x-8">
+        <ul
+          class="mx-auto grid w-full max-w-lg justify-items-start gap-3 text-start text-ice-400 sm:grid-cols-2 sm:gap-x-10"
+        >
           <li class="space-y-2">
             {
               benefitsColA.map((item) => (
-                <p class="flex items-start justify-center gap-2">
+                <p class="flex items-start justify-start gap-2">
                   <span class="mt-0.5 shrink-0 text-ice-cta" aria-hidden="true">❄️</span>
                   <span>{item}</span>
                 </p>
@@ -69,7 +73,7 @@ const frostBg = asset('FROST-KING324234234324.jpg');
           <li class="space-y-2">
             {
               benefitsColB.map((item) => (
-                <p class="flex items-start justify-center gap-2">
+                <p class="flex items-start justify-start gap-2">
                   <span class="mt-0.5 shrink-0 text-ice-cta" aria-hidden="true">❄️</span>
                   <span>{item}</span>
                 </p>
