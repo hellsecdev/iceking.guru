@@ -4,7 +4,7 @@ import { promo } from '../../content/sections';
 import WaveDivider from '../ui/WaveDivider.astro';
 ---
 
-<section id="promo" class="section-icy py-10 md:py-12">
+<section id="promo" class="section-icy section-icy--seam relative -mt-px pb-0 pt-10 md:pt-12">
   <div class="site-wrap flex justify-center">
     <img
       src={asset(promo.image)}
@@ -15,5 +15,5 @@ import WaveDivider from '../ui/WaveDivider.astro';
       height="675"
     />
   </div>
+  <WaveDivider variant="soft" class="relative z-10 -mb-px mt-8 md:mt-10" />
 </section>
-<WaveDivider flip />

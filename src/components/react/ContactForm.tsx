@@ -26,7 +26,7 @@ export default function ContactForm() {
   ] as const;
 
   return (
-    <form onSubmit={onSubmit} className="w-full max-w-xl space-y-4 lg:max-w-2xl">
+    <form onSubmit={onSubmit} className="mx-auto w-full max-w-xl space-y-4 lg:max-w-2xl">
       {fields.map((f) => (
         <div key={f.id}>
           <label htmlFor={f.id} className="mb-1 block text-end text-lg font-semibold text-ice-400">
@@ -60,7 +60,7 @@ export default function ContactForm() {
       <button type="submit" className="btn-pill w-full py-3 text-lg">
         🚀 {contactSection.submit}
       </button>
-      <p className="text-center text-sm text-ice-300">
+      <p className="text-center text-[0.65rem] leading-snug text-ice-300/90">
         הטופס יפתח שיחה ב-WhatsApp ({site.phone})
       </p>
     </form>

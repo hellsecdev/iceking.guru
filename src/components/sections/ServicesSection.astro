@@ -1,28 +1,27 @@
 ---
 import { asset } from '../../content/site';
 import { services, servicesTitle } from '../../content/services';
+import WaveDivider from '../ui/WaveDivider.astro';
 ---
 
-<section id="services" class="section-icy py-14">
-  <h2 class="section-title site-wrap mb-12">{servicesTitle}</h2>
+<section id="services" class="section-icy section-icy--seam relative -mt-px pb-0 pt-12 md:pt-14">
+  <h2 class="section-title site-wrap mb-10 md:mb-12">{servicesTitle}</h2>
   <div class="site-wrap grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
     {
       services.map((service) => (
         <article class="flex flex-col">
-          <div class="relative mb-8">
-            <img
-              src={asset(service.image)}
-              alt={service.title}
-              class="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-              loading="lazy"
-            />
-            <span class="absolute bottom-0 left-1/2 w-[90%] -translate-x-1/2 translate-y-1/2 rounded-full border-2 border-ice-50 bg-ice-cta px-3 py-2 text-center text-sm font-semibold text-white shadow-md">
-              {service.title}
-            </span>
-          </div>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-ice-300">{service.description}</p>
+          <img
+            src={asset(service.image)}
+            alt={service.title}
+            class="aspect-[4/3] w-full rounded-2xl object-cover shadow-md"
+            loading="lazy"
+          />
+          <p class="mt-4 flex-1 text-sm leading-relaxed text-ice-300 md:text-base">
+            {service.description}
+          </p>
         </article>
       ))
     }
   </div>
+  <WaveDivider variant="soft" class="relative z-10 -mb-px mt-10 md:mt-12" />
 </section>
