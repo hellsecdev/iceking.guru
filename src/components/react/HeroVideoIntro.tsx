@@ -1,33 +1,21 @@
 import { useCallback, useRef, useState } from 'react';
 
-const STORAGE_KEY = 'heroIntroCollapsed';
-
 type Props = {
   videoSrc: string;
   posterSrc: string;
 };
 
-function shouldSkipIntro(): boolean {
-  try {
-    if (sessionStorage.getItem(STORAGE_KEY) === '1') return true;
-  } catch {
-    /* private mode */
-  }
+function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
 export default function HeroVideoIntro({ videoSrc, posterSrc }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [collapsed, setCollapsed] = useState(shouldSkipIntro);
-  const [instant] = useState(shouldSkipIntro);
+  const skipIntro = prefersReducedMotion();
+  const [collapsed, setCollapsed] = useState(skipIntro);
 
   const collapse = useCallback(() => {
     setCollapsed(true);
-    try {
-      sessionStorage.setItem(STORAGE_KEY, '1');
-    } catch {
-      /* private mode */
-    }
     videoRef.current?.pause();
   }, []);
 
@@ -39,7 +27,7 @@ export default function HeroVideoIntro({ videoSrc, posterSrc }: Props) {
         className={[
           'hero-intro-shell',
           collapsed && 'is-collapsed',
-          instant && 'is-instant',
+          skipIntro && 'is-instant',
         ]
           .filter(Boolean)
           .join(' ')}
