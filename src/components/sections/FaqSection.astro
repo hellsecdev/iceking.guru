@@ -6,7 +6,9 @@ import WaveDivider from '../ui/WaveDivider.astro';
 ---
 
 <section id="faq" class="section-icy section-icy--seam relative -mt-px pb-0 pt-12 md:pt-14">
-  <h2 class="section-title site-wrap mb-8 max-w-4xl md:mb-10">{faqSection.title}</h2>
+  <h2 class="section-title mx-auto mb-8 max-w-4xl px-4 text-center sm:px-8 md:mb-10">
+    {faqSection.title}
+  </h2>
   <div class="site-wrap px-2 sm:px-4">
     <FaqAccordion client:visible items={faqItems} />
   </div>

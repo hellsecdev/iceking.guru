@@ -9,14 +9,15 @@ import WaveDivider from '../ui/WaveDivider.astro';
   <div class="site-wrap grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
     {
       services.map((service) => (
-        <article class="flex flex-col">
+        <article class="flex flex-col items-center">
           <img
             src={asset(service.image)}
             alt={service.title}
-            class="aspect-[4/3] w-full rounded-2xl object-cover shadow-md"
+            class="h-auto w-full max-w-full object-contain"
             loading="lazy"
+            decoding="async"
           />
-          <p class="mt-4 flex-1 text-sm leading-relaxed text-ice-300 md:text-base">
+          <p class="mt-4 w-full flex-1 text-sm leading-relaxed text-ice-300 md:text-base">
             {service.description}
           </p>
         </article>
