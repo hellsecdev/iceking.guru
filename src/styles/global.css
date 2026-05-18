@@ -51,6 +51,30 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-ice-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-ice-cta-hover;
   }
 
+  .btn-header-cta {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-base font-bold text-white md:gap-3 md:px-8 md:py-4 md:text-lg;
+    background: linear-gradient(135deg, #3bb4fa 0%, #6ec1e4 45%, #3bb4fa 100%);
+    box-shadow:
+      0 4px 16px rgb(59 180 250 / 0.4),
+      inset 0 1px 0 rgb(255 255 255 / 0.35);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .btn-header-cta:hover {
+    background: linear-gradient(135deg, #004fec 0%, #3bb4fa 55%, #60afd1 100%);
+    box-shadow:
+      0 8px 24px rgb(0 79 236 / 0.35),
+      inset 0 1px 0 rgb(255 255 255 / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-header-cta:active {
+    transform: translateY(0);
+  }
+
   .btn-ribbon {
     @apply relative inline-block overflow-hidden rounded-lg bg-gradient-to-l from-ice-cta to-sky-400 px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:from-ice-cta-hover hover:to-ice-cta;
   }
