@@ -6,10 +6,10 @@ const { footerCredit } = site;
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p class="site-footer__credit">
-      <span>{footerCredit.prefix}</span>
-      <span class="site-footer__heart" aria-hidden="true">❤️</span>
-      <span>{footerCredit.middle}</span>
+    <p class="site-footer__credit" dir="ltr" lang="en">
+      <span>{footerCredit.prefix}</span>{' '}
+      <span class="site-footer__heart" aria-hidden="true">❤️</span>{' '}
+      <span>{footerCredit.middle}</span>{' '}
       <a
         href={footerCredit.url}
         target="_blank"
@@ -30,8 +30,8 @@ const { footerCredit } = site;
         src={asset(footerCredit.logo)}
         alt="HellSec"
         class="site-footer__logo"
-        width="120"
-        height="120"
+        width="72"
+        height="72"
         loading="lazy"
       />
     </a>

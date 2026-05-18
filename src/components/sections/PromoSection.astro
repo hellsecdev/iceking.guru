@@ -1,28 +1,19 @@
 ---
+import { asset } from '../../content/site';
 import { promo } from '../../content/sections';
-import { whatsappUrl } from '../../content/site';
 import WaveDivider from '../ui/WaveDivider.astro';
-
-const ctaHref = whatsappUrl('שלום! מעוניין/ת בקורס מדריכי אמבטיות קרח');
 ---
 
-<section id="promo" class="section-icy py-16 text-center">
-  <div class="site-wrap">
-  <h2 class="mb-6 text-2xl font-bold text-ice-400 md:text-3xl lg:text-4xl">
-    {promo.title}
-  </h2>
-  <p class="mb-4 text-xl font-semibold text-ice-300 md:text-2xl">
-    ללמוד ממני את סודות אמבטיות הקרח רק ב-
-    <span class="text-ice-cta">{promo.priceNew} ש"ח</span>
-    במקום
-    <span class="text-slate-400 line-through">{promo.priceOld} ש"ח</span>!
-  </p>
-  <p class="mb-2 text-lg font-bold text-ice-400">{promo.exclusivity}</p>
-  <p class="mb-2 text-ice-300">{promo.body}</p>
-  <p class="mb-8 font-medium text-ice-400">{promo.urgency}</p>
-  <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="btn-ribbon">
-    {promo.cta}
-  </a>
+<section id="promo" class="section-icy py-10 md:py-12">
+  <div class="site-wrap flex justify-center">
+    <img
+      src={asset(promo.image)}
+      alt={promo.imageAlt}
+      class="h-auto w-full max-w-3xl object-contain lg:max-w-4xl"
+      loading="lazy"
+      width="1200"
+      height="675"
+    />
   </div>
 </section>
 <WaveDivider flip />
