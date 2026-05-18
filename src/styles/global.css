@@ -47,6 +47,22 @@
     @apply text-center text-2xl font-semibold text-ice-400 md:text-3xl lg:text-4xl;
   }
 
+  .about-prose {
+    @apply space-y-5 text-base leading-[1.9] text-ice-400 md:space-y-6 md:text-lg;
+  }
+
+  .about-prose__lead {
+    @apply text-lg font-medium leading-relaxed text-ice-400 md:text-xl;
+  }
+
+  .about-prose__lead::first-letter {
+    @apply float-right me-2 text-4xl font-bold leading-none text-ice-cta md:text-5xl;
+  }
+
+  .about-prose__cta {
+    @apply mt-8 rounded-2xl border border-ice-300/50 bg-white/70 px-6 py-5 text-center text-xl font-semibold leading-snug text-ice-400 shadow-sm backdrop-blur-sm md:mt-10 md:text-2xl;
+  }
+
   .btn-pill {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-ice-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-ice-cta-hover;
   }

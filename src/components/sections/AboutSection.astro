@@ -2,24 +2,44 @@
 import { asset } from '../../content/site';
 import { about } from '../../content/sections';
 import WaveDivider from '../ui/WaveDivider.astro';
+
+const frostBg = asset('FROST-KING22223.jpg');
 ---
 
-<section
-  id="about"
-  class="section-icy py-14"
-  style={`background-image: url('${asset('FROST-KING22223.jpg')}'); background-size: cover; background-position: center; background-color: #d8f5fd;`}
->
-  <h2 class="section-title site-wrap mb-10">{about.title}</h2>
-  <div class="site-wrap grid gap-10 lg:grid-cols-2 lg:items-center">
-    <img
-      src={asset(about.image)}
-      alt="ארטיום בויקוב - Ice King"
-      class="w-full max-w-md justify-self-center rounded-2xl shadow-2xl lg:justify-self-start"
-      loading="lazy"
-    />
-    <div class="space-y-4 text-lg leading-relaxed text-ice-400">
-      {about.paragraphs.map((p) => <p>{p}</p>)}
+<section id="about" class="relative overflow-hidden bg-ice-50 pt-0 pb-0">
+  <WaveDivider flip class="-mb-px" />
+
+  <div
+    class="relative py-12 md:py-16"
+    style={`background-image: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(216,245,253,0.88) 100%), url('${frostBg}'); background-size: cover; background-position: center;`}
+  >
+    <h2 class="section-title site-wrap mb-10 md:mb-12">{about.title}</h2>
+
+    <div
+      class="site-wrap grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16"
+      dir="ltr"
+    >
+      <figure class="m-0 flex justify-center lg:justify-start">
+        <img
+          src={asset(about.image)}
+          alt="ארטיום בויקוב - Ice King"
+          class="h-auto w-full max-w-sm object-contain sm:max-w-md lg:max-w-xl xl:max-w-2xl"
+          loading="lazy"
+          width="640"
+          height="800"
+        />
+      </figure>
+
+      <div class="about-prose" dir="rtl">
+        {
+          about.paragraphs.map((p, i) => (
+            <p class:list={[i === 0 && 'about-prose__lead']}>{p}</p>
+          ))
+        }
+        <p class="about-prose__cta">{about.closing}</p>
+      </div>
     </div>
   </div>
+
+  <WaveDivider class="-mt-px" />
 </section>
-<WaveDivider />
