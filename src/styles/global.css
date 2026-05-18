@@ -43,6 +43,14 @@
       radial-gradient(circle at 90% 80%, rgb(110 193 228 / 0.1) 0%, transparent 30%);
   }
 
+  /** Нижний край остаётся ледяным — для стыка с волной (без белой полосы) */
+  .section-icy--seam {
+    background:
+      linear-gradient(180deg, var(--color-ice-50) 0%, var(--color-ice-100) 72%, var(--color-ice-50) 100%),
+      radial-gradient(circle at 10% 20%, rgb(110 193 228 / 0.12) 0%, transparent 25%),
+      radial-gradient(circle at 90% 70%, rgb(110 193 228 / 0.08) 0%, transparent 28%);
+  }
+
   .section-title {
     @apply text-center text-2xl font-semibold text-ice-400 md:text-3xl lg:text-4xl;
   }

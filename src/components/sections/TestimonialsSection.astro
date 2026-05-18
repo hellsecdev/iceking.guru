@@ -2,9 +2,10 @@
 import ImageCarousel from '../react/ImageCarousel';
 import { testimonials } from '../../content/sections';
 import { testimonialImages } from '../../content/media';
+import WaveDivider from '../ui/WaveDivider.astro';
 ---
 
-<section id="testimonials" class="section-icy py-14">
+<section id="testimonials" class="section-icy section-icy--seam relative pb-0 pt-14">
   <h2 class="section-title site-wrap mb-10">{testimonials.title}</h2>
   <ImageCarousel
     client:visible
@@ -14,4 +15,5 @@ import { testimonialImages } from '../../content/media';
     lightbox
     imageMaxHeight="sm"
   />
+  <WaveDivider variant="soft" class="relative z-10 -mb-px mt-8 md:mt-10" />
 </section>

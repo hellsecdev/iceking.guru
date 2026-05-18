@@ -6,12 +6,10 @@ import WaveDivider from '../ui/WaveDivider.astro';
 const frostBg = asset('FROST-KING22223.jpg');
 ---
 
-<section id="about" class="relative overflow-hidden bg-ice-50 pt-0 pb-0">
-  <WaveDivider flip class="-mb-px" />
-
+<section id="about" class="relative -mt-px overflow-hidden bg-ice-50 pb-0 pt-0">
   <div
     class="relative py-12 md:py-16"
-    style={`background-image: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(216,245,253,0.88) 100%), url('${frostBg}'); background-size: cover; background-position: center;`}
+    style={`background-image: linear-gradient(180deg, #d8f5fd 0%, rgba(255,255,255,0.88) 35%, rgba(216,245,253,0.9) 100%), url('${frostBg}'); background-size: cover; background-position: center;`}
   >
     <h2 class="section-title site-wrap mb-10 md:mb-12">{about.title}</h2>
 
@@ -40,5 +38,5 @@ const frostBg = asset('FROST-KING22223.jpg');
     </div>
   </div>
 
-  <WaveDivider class="-mt-px" />
+  <WaveDivider variant="soft" class="-mt-px" />
 </section>

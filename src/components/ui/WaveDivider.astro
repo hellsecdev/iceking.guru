@@ -2,21 +2,29 @@
 interface Props {
   flip?: boolean;
   class?: string;
-  /** Чуть выше волна для стыка видео → hero */
-  variant?: 'default' | 'hero';
+  /** Чуть выше волна для стыка видео → hero; soft — плавный стык секций */
+  variant?: 'default' | 'hero' | 'soft';
 }
 
 const { flip = false, class: className = '', variant = 'default' } = Astro.props;
 
-const heightClass = variant === 'hero' ? 'h-16 md:h-20 lg:h-24' : 'h-14 md:h-20';
+const heightClass =
+  variant === 'hero'
+    ? 'h-16 md:h-20 lg:h-24'
+    : variant === 'soft'
+      ? 'h-10 md:h-14 lg:h-16'
+      : 'h-14 md:h-20';
 
 /** Одна кривая: заливка только под волной (без полосы сверху) */
 const wavePath =
   variant === 'hero'
     ? 'M0,56 C320,108 640,24 960,64 C1120,84 1280,96 1440,72 L1440,120 L0,120 Z'
-    : 'M0,64 C300,120 900,0 1200,64 L1200,120 L0,120 Z';
+    : variant === 'soft'
+      ? 'M0,72 C280,96 520,48 720,80 C920,112 1080,56 1200,72 L1200,120 L0,120 Z'
+      : 'M0,64 C300,120 900,0 1200,64 L1200,120 L0,120 Z';
 
-const viewBox = variant === 'hero' ? '0 0 1440 120' : '0 0 1200 120';
+const viewBox =
+  variant === 'hero' ? '0 0 1440 120' : '0 0 1200 120';
 ---
 
 <div
