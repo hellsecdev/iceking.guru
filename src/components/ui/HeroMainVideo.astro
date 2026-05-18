@@ -1,5 +1,5 @@
 ---
-/** Три кадра в колонке HERO (~60% ширины контейнера, как Elementor widget). */
+/** Три кадра в колонке HERO, 16:9 по центру. */
 import { asset, site } from '../../content/site';
 
 interface Props {
@@ -12,11 +12,11 @@ const videoSrc = asset(site.heroMainVideo);
 
 <div
   class:list={[
-    'w-full overflow-hidden rounded-2xl bg-black shadow-lg ring-1 ring-white/80 lg:ms-auto lg:me-0 lg:max-w-[92%]',
+    'mx-auto w-full overflow-hidden rounded-2xl bg-black shadow-lg',
     className,
   ]}
 >
-  <div class="relative aspect-[16/7] w-full sm:aspect-[2.8/1]">
+  <div class="relative aspect-video w-full">
     <video
       class="absolute inset-0 h-full w-full border-0 object-cover"
       src={videoSrc}
