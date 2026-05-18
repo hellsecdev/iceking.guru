@@ -11,12 +11,15 @@ function imageSrc(assetBase: string, file: string) {
   return `${assetBase.replace(/\/?$/, '/')}${encodeURI(file)}`;
 }
 
+/** ~3 tall slides visible, flush — like original iceking.guru gallery */
+const slideClass =
+  'min-w-0 flex-[0_0_88%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]';
+
 export default function GalleryCarousel({ images, assetBase }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
+    align: 'center',
     direction: 'rtl',
     loop: true,
-    dragFree: true,
   });
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -30,11 +33,11 @@ export default function GalleryCarousel({ images, assetBase }: Props) {
 
   return (
     <>
-      <div className="gallery-carousel relative w-full">
+      <div className="gallery-carousel relative mx-auto w-full max-w-6xl px-10 sm:px-12 md:px-14">
         <button
           type="button"
           onClick={scrollNext}
-          className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/95 p-2 text-2xl text-ice-400 shadow-md transition hover:bg-white sm:right-2"
+          className="gallery-carousel__arrow absolute right-0 top-1/2 z-20 -translate-y-1/2 border-0 bg-transparent p-0 text-4xl leading-none text-slate-800/75 transition hover:text-slate-900 md:text-5xl"
           aria-label="הבא"
         >
           ‹
@@ -42,7 +45,7 @@ export default function GalleryCarousel({ images, assetBase }: Props) {
         <button
           type="button"
           onClick={scrollPrev}
-          className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/95 p-2 text-2xl text-ice-400 shadow-md transition hover:bg-white sm:left-2"
+          className="gallery-carousel__arrow absolute left-0 top-1/2 z-20 -translate-y-1/2 border-0 bg-transparent p-0 text-4xl leading-none text-slate-800/75 transition hover:text-slate-900 md:text-5xl"
           aria-label="הקודם"
         >
           ›
@@ -51,20 +54,17 @@ export default function GalleryCarousel({ images, assetBase }: Props) {
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-0">
             {images.map((file, i) => (
-              <div
-                key={`${file}-${i}`}
-                className="min-w-0 flex-[0_0_33.333%] sm:flex-[0_0_25%] md:flex-[0_0_20%] lg:flex-[0_0_16.666%] xl:flex-[0_0_14.285%]"
-              >
+              <div key={`${file}-${i}`} className={slideClass}>
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(i)}
-                  className="block w-full cursor-zoom-in border-0 bg-ice-50 p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ice-cta"
+                  className="block h-full w-full cursor-zoom-in border-0 bg-transparent p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ice-cta"
                   aria-label={`תמונה ${i + 1}`}
                 >
                   <img
                     src={imageSrc(assetBase, file)}
                     alt=""
-                    className="aspect-square h-auto w-full object-cover"
+                    className="mx-auto h-[min(52vh,420px)] w-full object-contain object-center sm:h-[min(58vh,460px)] lg:h-[min(62vh,500px)]"
                     loading="lazy"
                     decoding="async"
                     draggable={false}
