@@ -20,7 +20,10 @@ export const site = {
     facebook: 'https://www.facebook.com/share/1A1tXe8ex6/?mibextid=wwXIfr',
   },
   footerCredit: {
-    text: 'Forged with 🧊 by HellSec',
+    prefix: 'Developed with',
+    middle: 'by',
+    brand: 'HellSec',
+    logo: 'hellsec-logo.png',
     url: 'https://hellsec.dev',
   },
 } as const;

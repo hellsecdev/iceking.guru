@@ -1,14 +1,39 @@
 ---
-import { site } from '../../content/site';
+import { asset, site } from '../../content/site';
+
+const { footerCredit } = site;
 ---
 
-<footer class="w-full bg-[#1d1d1d] py-4 text-center text-white">
-  <a
-    href={site.footerCredit.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="text-base transition hover:text-ice-50"
-  >
-    🛠️ {site.footerCredit.text} ❄️
-  </a>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__credit">
+      <span>{footerCredit.prefix}</span>
+      <span class="site-footer__heart" aria-hidden="true">❤️</span>
+      <span>{footerCredit.middle}</span>
+      <a
+        href={footerCredit.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="site-footer__brand"
+      >
+        {footerCredit.brand}
+      </a>
+    </p>
+    <a
+      href={footerCredit.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="site-footer__logo-link"
+      aria-label="HellSec Development & Cybersecurity"
+    >
+      <img
+        src={asset(footerCredit.logo)}
+        alt="HellSec"
+        class="site-footer__logo"
+        width="120"
+        height="120"
+        loading="lazy"
+      />
+    </a>
+  </div>
 </footer>
