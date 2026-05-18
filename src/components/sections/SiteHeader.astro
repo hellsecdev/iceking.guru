@@ -6,22 +6,20 @@ const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
 ---
 
 <header class="relative z-20 py-3 md:py-4">
-  <!-- Desktop / tablet: одна строка, логотип геометрически по центру -->
-  <div
-    class="site-wrap hidden items-center gap-3 md:flex md:gap-4 lg:gap-6"
-    dir="ltr"
-  >
-    <div class="flex min-w-0 flex-1 items-center justify-start gap-3 lg:gap-5">
+  <!-- Desktop: телефон | соцсети по центру зоны | лого | адрес по центру зоны | WhatsApp -->
+  <div class="site-wrap hidden items-center md:flex" dir="ltr">
+    <div class="flex min-w-0 flex-1 items-center">
       <a href={`tel:${site.phoneTel}`} class="btn-header-cta shrink-0">
-        <img src={asset('ICEKING-5.png')} alt="" class="h-6 w-6 shrink-0 md:h-7 md:w-7" />
         {site.phone}
       </a>
-      <SocialLinks />
+      <div class="flex min-w-0 flex-1 justify-center px-3 lg:px-6">
+        <SocialLinks />
+      </div>
     </div>
 
     <a
       href={import.meta.env.BASE_URL}
-      class="mx-2 block shrink-0 lg:mx-4"
+      class="mx-3 block shrink-0 lg:mx-5"
       aria-label={site.name}
     >
       <img
@@ -33,26 +31,27 @@ const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
       />
     </a>
 
-    <div class="flex min-w-0 flex-1 items-center justify-end gap-3 lg:gap-5">
-      <p
-        class="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-base font-semibold text-ice-400 md:text-lg"
-      >
-        <span class="text-lg text-red-500 md:text-xl" aria-hidden="true">📍</span>
-        {site.location}
-      </p>
+    <div class="flex min-w-0 flex-1 items-center">
+      <div class="flex min-w-0 flex-1 justify-center px-3 lg:px-6">
+        <p
+          class="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-base font-semibold text-ice-400 md:text-lg"
+        >
+          <span class="text-lg text-red-500 md:text-xl" aria-hidden="true">📍</span>
+          {site.location}
+        </p>
+      </div>
       <a
         href={waLink}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-header-cta shrink-0"
+        class="btn-header-cta shrink-0 whitespace-nowrap"
       >
-        <img src={asset('ICEKING45465.png')} alt="" class="h-6 w-6 shrink-0 md:h-7 md:w-7" />
-        <span class="whitespace-nowrap">צור קשר WhatsApp</span>
+        צור קשר WhatsApp
       </a>
     </div>
   </div>
 
-  <!-- Mobile: логотип сверху, затем кнопки в нужном порядке -->
+  <!-- Mobile -->
   <div class="site-wrap flex flex-col items-center gap-4 md:hidden" dir="ltr">
     <a href={import.meta.env.BASE_URL} class="block">
       <img
@@ -65,7 +64,6 @@ const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
     </a>
     <div class="flex w-full max-w-lg flex-wrap items-center justify-center gap-3">
       <a href={`tel:${site.phoneTel}`} class="btn-header-cta shrink-0">
-        <img src={asset('ICEKING-5.png')} alt="" class="h-6 w-6 shrink-0" />
         {site.phone}
       </a>
       <SocialLinks />
@@ -79,7 +77,6 @@ const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
         rel="noopener noreferrer"
         class="btn-header-cta shrink-0"
       >
-        <img src={asset('ICEKING45465.png')} alt="" class="h-6 w-6 shrink-0" />
         צור קשר WhatsApp
       </a>
     </div>
