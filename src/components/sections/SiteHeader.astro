@@ -5,42 +5,42 @@ import SocialLinks from '../ui/SocialLinks.astro';
 const waLink = whatsappUrl('שלום, אשמח ליצור קשר');
 ---
 
-<header class="relative z-20 py-3 md:py-3.5">
-  <div class="site-wrap grid grid-cols-2 items-center gap-3 md:grid-cols-[1fr_auto_1fr] md:gap-6">
-    <div class="flex flex-wrap items-center justify-start gap-2 md:gap-3">
-      <a href={`tel:${site.phoneTel}`} class="btn-pill text-xs md:text-sm">
-        <img src={asset('ICEKING-5.png')} alt="" class="h-5 w-5 shrink-0" />
-        {site.phone}
-      </a>
-      <SocialLinks />
-    </div>
+<header class="relative z-20 py-3 md:py-4">
+  <div class="site-wrap flex flex-wrap items-center justify-between gap-3 md:gap-4 lg:gap-6" dir="ltr">
+    <a href={`tel:${site.phoneTel}`} class="btn-pill shrink-0 text-xs md:text-sm">
+      <img src={asset('ICEKING-5.png')} alt="" class="h-5 w-5 shrink-0" />
+      {site.phone}
+    </a>
 
-    <div class="col-span-2 flex justify-center md:col-span-1">
+    <SocialLinks />
+
+    <div class="order-3 flex w-full basis-full justify-center sm:order-none sm:w-auto sm:flex-1 sm:basis-auto">
       <a href={import.meta.env.BASE_URL} class="block">
         <img
           src={asset('ICEKING213213.png')}
           alt={site.name}
-          class="h-14 w-auto md:h-[4.5rem]"
-          width="200"
-          height="80"
+          class="h-28 w-auto md:h-36 lg:h-[9.5rem]"
+          width="400"
+          height="160"
         />
       </a>
     </div>
 
-    <div class="flex flex-wrap items-center justify-end gap-2 md:gap-3">
-      <p class="flex items-center gap-1 text-sm font-semibold text-ice-400 md:text-base">
-        <span class="text-red-500" aria-hidden="true">📍</span>
-        {site.location}
-      </p>
-      <a
-        href={waLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-pill text-xs md:text-sm"
-      >
-        <img src={asset('ICEKING45465.png')} alt="" class="h-5 w-5 shrink-0" />
-        <span class="hidden sm:inline">צור קשר ב-</span>WhatsApp
-      </a>
-    </div>
+    <p
+      class="flex shrink-0 items-center gap-1 text-sm font-semibold text-ice-400 md:text-base"
+    >
+      <span class="text-red-500" aria-hidden="true">📍</span>
+      {site.location}
+    </p>
+
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-pill shrink-0 text-xs md:text-sm"
+    >
+      <img src={asset('ICEKING45465.png')} alt="" class="h-5 w-5 shrink-0" />
+      צור קשר WhatsApp
+    </a>
   </div>
 </header>
