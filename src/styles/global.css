@@ -169,6 +169,24 @@
     }
   }
 
+  .gallery-grid__thumb {
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  .gallery-grid__thumb:hover {
+    filter: brightness(1.05);
+    z-index: 1;
+    position: relative;
+  }
+
+  .gallery-grid__thumb img {
+    display: block;
+  }
+
+  .gallery-lightbox [data-lightbox-figure] img {
+    max-height: 82vh;
+  }
+
   .site-footer {
     @apply w-full py-6 md:py-7;
     background: linear-gradient(180deg, #0e3d52 0%, #0a2a3a 55%, #061e2b 100%);

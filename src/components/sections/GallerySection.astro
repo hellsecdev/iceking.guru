@@ -1,22 +1,58 @@
 ---
-import ImageCarousel from '../react/ImageCarousel';
 import { asset } from '../../content/site';
 import { gallerySection } from '../../content/sections';
 import { galleryImages } from '../../content/media';
 import WaveDivider from '../ui/WaveDivider.astro';
+
+const assetBase = import.meta.env.BASE_URL + 'assets';
 ---
 
 <section
   id="gallery"
-  class="section-icy relative -mt-px py-14"
+  class="section-icy relative -mt-px py-12 md:py-14"
   style={`background-image: url('${asset('FROST-KING6666.jpg')}'); background-size: cover; background-position: top center; background-color: #d8f5fd;`}
 >
-  <h2 class="section-title site-wrap mb-10">{gallerySection.title}</h2>
-  <ImageCarousel
-    client:visible
-    images={galleryImages}
-    assetBase={import.meta.env.BASE_URL + 'assets'}
-    slidesToShow={3}
-  />
+  <h2 class="section-title mx-auto mb-8 max-w-4xl px-4 text-center sm:px-8 md:mb-10">
+    {gallerySection.title}
+  </h2>
+  <div class="site-wrap">
+    <div class="gallery-panel rounded-2xl bg-white/90 px-2 py-4 backdrop-blur-sm sm:px-3 md:py-5">
+      <p class="mb-3 text-center text-sm text-ice-300" aria-live="polite">
+        {galleryImages.length} תמונות — לחצו להגדלה
+      </p>
+      <ul
+        id="photo-gallery"
+        class="gallery-grid grid grid-cols-3 gap-0 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7"
+      >
+        {
+          galleryImages.map((file, index) => (
+            <li class="min-w-0">
+              <button
+                type="button"
+                data-gallery-index={index}
+                class="gallery-grid__thumb block w-full cursor-zoom-in overflow-hidden border-0 bg-ice-50 p-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-ice-cta"
+                aria-label={`הגדל תמונה ${index + 1} מתוך ${galleryImages.length}`}
+              >
+                <img
+                  src={asset(file)}
+                  alt=""
+                  class="aspect-square h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="320"
+                  height="320"
+                />
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+  <WaveDivider variant="soft" class="relative z-10 -mb-px mt-10 md:mt-12" />
 </section>
-<WaveDivider />
+
+<script define:vars={{ galleryImages, assetBase }}>
+  import { initGalleryLightbox } from '../../scripts/gallery-lightbox.ts';
+  initGalleryLightbox(galleryImages, assetBase);
+</script>
