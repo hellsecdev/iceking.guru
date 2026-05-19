@@ -4,10 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 
 /**
- * GitHub Project Pages: https://hellsecdev.github.io/iceking.guru/
- * Custom domain iceking.guru: set ASTRO_BASE=/ in CI or .env
+ * Production (custom domain): ASTRO_BASE=/ (set in CI).
+ * Project Pages subpath only: ASTRO_BASE=/iceking.guru/ npm run build
  */
-const base = process.env.ASTRO_BASE ?? '/iceking.guru/';
+const base = process.env.ASTRO_BASE ?? '/';
 
 export default defineConfig({
   site: 'https://iceking.guru',

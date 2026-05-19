@@ -3,23 +3,33 @@ import GalleryCarousel from '../react/GalleryCarousel';
 import { asset } from '../../content/site';
 import { gallerySection } from '../../content/sections';
 import { galleryImages } from '../../content/media';
-import WaveDivider from '../ui/WaveDivider.astro';
+
+const frostBg = asset('FROST-KING6666.jpg');
 ---
 
-<section
-  id="gallery"
-  class="section-icy relative -mt-px py-12 md:py-14"
-  style={`background-image: url('${asset('FROST-KING6666.jpg')}'); background-size: cover; background-position: top center; background-color: #d8f5fd;`}
->
-  <h2 class="section-title mx-auto mb-8 max-w-4xl px-4 text-center sm:px-8 md:mb-10">
+<section id="gallery" class="relative -mt-px overflow-hidden py-12 md:py-16 lg:py-20">
+  <div
+    class="pointer-events-none absolute inset-0 -z-20 bg-ice-50"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center"
+    style={`background-image: url('${frostBg}');`}
+    aria-hidden="true"
+  ></div>
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent via-ice-50/40 to-ice-50 md:h-48"
+    aria-hidden="true"
+  ></div>
+
+  <h2 class="section-title relative z-10 mx-auto mb-8 max-w-4xl px-4 text-center sm:px-8 md:mb-10">
     {gallerySection.title}
   </h2>
-  <div class="site-wrap">
+  <div class="site-wrap relative z-10">
     <GalleryCarousel
       client:load
       images={galleryImages}
       assetBase={import.meta.env.BASE_URL + 'assets'}
     />
   </div>
-  <WaveDivider variant="soft" class="relative z-10 -mb-px mt-10 md:mt-12" />
 </section>

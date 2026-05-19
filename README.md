@@ -29,8 +29,8 @@ Commit `public/assets/` after running `import-media` so CI has images.
 
 ### Base path
 
-- **GitHub Project Pages** (`hellsecdev.github.io/iceking.guru`): builds with `ASTRO_BASE=/iceking.guru/` (set in CI).
-- **Custom domain** (`iceking.guru`): in GitHub Actions, set `ASTRO_BASE=/` and point DNS to GitHub Pages.
+- **Custom domain** (`https://iceking.guru/`): CI builds with `ASTRO_BASE=/` (default).
+- **GitHub Project Pages** subpath only: `ASTRO_BASE=/iceking.guru/ npm run build`.
 
 ## Stack
 
