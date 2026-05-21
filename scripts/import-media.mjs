@@ -92,12 +92,9 @@ const GALLERY_FILES = [
 ];
 
 const FILES = [
-  'ICEKING45465.png',
   'ICEKING213213.png',
   'ICEKING-3.png',
-  'ICEKING3423423.png',
   'ICEKING444.png',
-  'ICEKING-5.png',
   '2139087.png',
   '223908.png',
   '23258.png',
@@ -109,10 +106,8 @@ const FILES = [
   '1.png',
   '2.png',
   '3.png',
-  'Add-a-heading-1.png',
   'ICEKINGwwwwwr.png',
   'cropped-ICEKING-32x32.png',
-  'cropped-ICEKING-192x192.png',
   ...Array.from({ length: 27 }, (_, i) => {
     const n = String(103 + i).padStart(4, '0');
     return `IMG-20250220-WA${n}.jpg`;

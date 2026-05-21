@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { asset, site } from '../content/site';
+import JsonLd from '../components/seo/JsonLd.astro';
+import { absoluteAsset, site } from '../content/site';
 import SiteLoader from '../components/ui/SiteLoader.astro';
 
 interface Props {
@@ -9,11 +10,14 @@ interface Props {
 }
 
 const {
-  title = site.title,
-  description = site.description,
+  title = site.seo.title,
+  description = site.seo.description,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteOrigin = Astro.site!;
+const ogImage = absoluteAsset(site.seo.ogImage, siteOrigin);
+const appleTouchIcon = absoluteAsset('ICEKING213213.png', siteOrigin);
 ---
 
 <!doctype html>
@@ -22,15 +26,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="he_IL" />
-    <link rel="icon" type="image/png" href={asset('cropped-ICEKING-32x32.png')} />
-    <link rel="preload" as="image" href={asset('ICEKING213213.png')} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={site.seo.ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content={site.seo.themeColor} />
+    <link rel="icon" type="image/png" href={absoluteAsset('cropped-ICEKING-32x32.png', siteOrigin)} />
+    <link rel="apple-touch-icon" href={appleTouchIcon} />
+    <link rel="preload" as="image" href={absoluteAsset('ICEKING213213.png', siteOrigin)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,6 +51,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       rel="stylesheet"
     />
     <title>{title}</title>
+    <JsonLd canonical={canonical.href} siteOrigin={siteOrigin} />
   </head>
   <body class="is-loading">
     <SiteLoader />

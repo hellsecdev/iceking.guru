@@ -5,6 +5,7 @@ type Props = {
   assetBase: string;
   initialIndex: number;
   onClose: () => void;
+  getAlt?: (index: number) => string;
 };
 
 function imageSrc(assetBase: string, file: string) {
@@ -16,6 +17,7 @@ export default function ImageLightbox({
   assetBase,
   initialIndex,
   onClose,
+  getAlt,
 }: Props) {
   const [index, setIndex] = useState(initialIndex);
   const total = images.length;
@@ -97,7 +99,7 @@ export default function ImageLightbox({
       >
         <img
           src={imageSrc(assetBase, file)}
-          alt=""
+          alt={getAlt ? getAlt(index) : ''}
           className="max-h-[82vh] w-auto max-w-full object-contain"
         />
         <figcaption className="text-sm font-medium text-white/80">

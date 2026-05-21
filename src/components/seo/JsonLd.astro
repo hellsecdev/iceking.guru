@@ -1,0 +1,50 @@
+---
+import { faqItems } from '../../content/faq';
+import { absoluteAsset, site } from '../../content/site';
+
+interface Props {
+  canonical: string;
+  siteOrigin: string | URL;
+}
+
+const { canonical, siteOrigin } = Astro.props;
+
+const ogImageUrl = absoluteAsset(site.seo.ogImage, siteOrigin);
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  description: site.seo.description,
+  url: canonical,
+  telephone: `+972${site.phoneTel.replace(/^0/, '')}`,
+  email: site.email,
+  image: ogImageUrl,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.location,
+    addressCountry: 'IL',
+  },
+  sameAs: [
+    site.social.tiktok,
+    site.social.instagram,
+    site.social.facebook,
+  ],
+};
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqPage)} />

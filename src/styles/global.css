@@ -106,7 +106,7 @@
   }
 
   .faq-card__question {
-    @apply flex-1 text-base font-semibold leading-snug text-ice-400 md:text-lg;
+    @apply m-0 flex-1 text-base font-semibold leading-snug text-ice-400 md:text-lg;
   }
 
   .faq-card__toggle {
@@ -169,24 +169,6 @@
     }
   }
 
-  .gallery-grid__thumb {
-    transition: filter 0.2s ease, opacity 0.2s ease;
-  }
-
-  .gallery-grid__thumb:hover {
-    filter: brightness(1.05);
-    z-index: 1;
-    position: relative;
-  }
-
-  .gallery-grid__thumb img {
-    display: block;
-  }
-
-  .gallery-lightbox [data-lightbox-figure] img {
-    max-height: 82vh;
-  }
-
   .site-footer {
     @apply w-full py-6 md:py-7;
     background: linear-gradient(180deg, #0e3d52 0%, #0a2a3a 55%, #061e2b 100%);
@@ -194,6 +176,18 @@
 
   .site-footer__inner {
     @apply mx-auto flex max-w-sm flex-col items-center gap-3 px-4 text-center;
+  }
+
+  .site-footer__nap {
+    @apply flex flex-col gap-1;
+  }
+
+  .site-footer__nap-line {
+    @apply m-0 text-sm text-ice-100/90 md:text-base;
+  }
+
+  .site-footer__nap-link {
+    @apply text-ice-cta underline-offset-2 transition hover:text-white hover:underline;
   }
 
   .site-footer__credit {

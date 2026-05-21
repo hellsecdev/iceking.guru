@@ -1,5 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
+import { imageAltForKind, type ImageAltKind } from '../../lib/image-alt';
 import ImageLightbox from './ImageLightbox';
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
   lightbox?: boolean;
   /** Max height of carousel thumbnails (px via Tailwind) */
   imageMaxHeight?: 'sm' | 'md' | 'lg';
+  altKind?: ImageAltKind;
 };
 
 const heightClass = {
@@ -29,6 +31,7 @@ export default function ImageCarousel({
   showFraction = false,
   lightbox = false,
   imageMaxHeight = 'md',
+  altKind = 'gallery',
 }: Props) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'center',
@@ -100,7 +103,7 @@ export default function ImageCarousel({
                 >
                   <img
                     src={imageSrc(assetBase, file)}
-                    alt=""
+                    alt={imageAltForKind(altKind, i)}
                     className={`mx-auto w-full rounded-xl object-contain shadow-md ${maxH} ${lightbox ? '' : 'pointer-events-none'}`}
                     loading="lazy"
                     draggable={false}
@@ -124,6 +127,7 @@ export default function ImageCarousel({
           assetBase={assetBase}
           initialIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
+          getAlt={(i) => imageAltForKind(altKind, i)}
         />
       )}
     </>

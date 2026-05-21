@@ -8,6 +8,14 @@ export const site = {
   phoneTel: '0543319843',
   whatsapp: '972543319843',
   email: 'Artium07@gmail.com',
+  seo: {
+    title: 'אמבטיות קרח בחיפה | Ice King',
+    description:
+      'אמבטיות קרח מקצועיות בחיפה – סדנאות קבוצתיות, זוגיות וטבילת יחיד. שיטת Wim Hof, התאוששות, אנרגיה וחוסן מנטלי. Ice King.',
+    ogImage: 'promo-course.png',
+    ogImageAlt: 'מבצע ייחודי לקורס מדריכי אמבטיות קרח – Ice King',
+    themeColor: '#d8f5fd',
+  },
   /** Верх: intro лёд (self-hosted) */
   heroIntroVideo: 'video/ice-logo-intro.mp4',
   /** HERO: три кадра (self-hosted) */
@@ -39,6 +47,7 @@ export function asset(path: string) {
   return `${base}assets/${clean}`;
 }
 
-export function assetsBase() {
-  return `${import.meta.env.BASE_URL}assets`;
+/** Absolute URL for OG / JSON-LD (requires `site` in astro.config). */
+export function absoluteAsset(path: string, siteOrigin: string | URL) {
+  return new URL(asset(path), siteOrigin).href;
 }

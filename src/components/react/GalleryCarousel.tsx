@@ -1,5 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
+import { galleryAlt } from '../../lib/image-alt';
 import ImageLightbox from './ImageLightbox';
 
 type Props = {
@@ -63,7 +64,7 @@ export default function GalleryCarousel({ images, assetBase }: Props) {
                 >
                   <img
                     src={imageSrc(assetBase, file)}
-                    alt=""
+                    alt={galleryAlt(i)}
                     className="mx-auto h-[min(52vh,420px)] w-full object-contain object-center sm:h-[min(58vh,460px)] lg:h-[min(62vh,500px)]"
                     loading="lazy"
                     decoding="async"
@@ -82,6 +83,7 @@ export default function GalleryCarousel({ images, assetBase }: Props) {
           assetBase={assetBase}
           initialIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
+          getAlt={galleryAlt}
         />
       )}
     </>

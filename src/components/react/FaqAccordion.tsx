@@ -27,7 +27,7 @@ export default function FaqAccordion({ items }: Props) {
               <span className="faq-card__icon" aria-hidden="true">
                 {item.emoji}
               </span>
-              <span className="faq-card__question">{item.question}</span>
+              <h3 className="faq-card__question">{item.question}</h3>
               <span className={`faq-card__toggle ${isOpen ? 'faq-card__toggle--open' : ''}`}>
                 <span className="faq-card__toggle-bar" />
                 <span className="faq-card__toggle-bar faq-card__toggle-bar--vertical" />

@@ -14,7 +14,6 @@ export const intro = {
     'הגברת אנרגיה ורעננות',
   ],
   heroImage: 'ICEKING-3.png',
-  stripImage: 'ICEKING3423423.png',
 };
 
 export const testimonials = {
