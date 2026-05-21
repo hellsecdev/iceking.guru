@@ -2,6 +2,24 @@ import { useState, type FormEvent } from 'react';
 import { contactSection } from '../../content/sections';
 import { site, whatsappUrl } from '../../content/site';
 
+function formatContactWhatsAppMessage(fields: {
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+}) {
+  return [
+    'שלום, פנייה מהאתר IceKing.Guru',
+    '',
+    `שם: ${fields.name.trim()}`,
+    `טלפון: ${fields.phone.trim()}`,
+    `מייל: ${fields.email.trim()}`,
+    '',
+    'הודעה:',
+    fields.message.trim(),
+  ].join('\n');
+}
+
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -10,12 +28,7 @@ export default function ContactForm() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const text = [
-      `שם: ${name}`,
-      `טלפון: ${phone}`,
-      `מייל: ${email}`,
-      `הודעה: ${message}`,
-    ].join('\n');
+    const text = formatContactWhatsAppMessage({ name, phone, email, message });
     window.open(whatsappUrl(text), '_blank', 'noopener,noreferrer');
   };
 
